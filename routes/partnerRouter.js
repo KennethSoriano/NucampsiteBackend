@@ -1,10 +1,10 @@
 const express = require('express');
-const Campsite = require('../models/campsite');
+const Partner = require('../models/partner.js');
 const partnerRouter = express.Router();
 
 partnerRouter.route('/')
 .get((req, res, next) => {
-    partnerRouter.find()
+    Partner.find()
     .then(campsites => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -37,9 +37,9 @@ partnerRouter.route('/')
 });
 
 partnerRouter.route('/:partnerId')
-.get((req, res) => {
-    Partner.findById(req.params.campsiteId)
-    .then(campsite => {
+.get((req, res, next) => {
+    Partner.findById(req.params.partnerId)
+    .then(partner => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.json(partner);

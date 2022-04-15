@@ -28,4 +28,4 @@ const partnerSchema = new Schema ({
 
 const Partner = mongoose.model('Partner', partnerSchema)
 
-Module.exports = Partner
+module.exports = Partner
